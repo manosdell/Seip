@@ -12,7 +12,7 @@
     <description>
         This project contains the assignments of the Software Engineering in Practice (SEIP) course's lab
     </description>
-    <url></url>
+    <url>https://github.com/manosdell/Seip</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
