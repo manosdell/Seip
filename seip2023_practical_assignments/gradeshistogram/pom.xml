@@ -11,7 +11,7 @@
     <artifactId>gradeshistogram</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>Histogram for Grades</name>
+    <name>Grades Histogram</name>
     <description>
         This module creates a histogram from a given file with grades.
         A "fat-jar" with all the necessary dependencies
