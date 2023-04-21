@@ -7,7 +7,7 @@ Engineering in Practice (SEiP) course's lab.
 
 This repository contains the Maven parent project:
 [Seip Lab Assignments](seip2023_practical_assignments), which in turn
-contains the module [Grades Histogram](seip2023_practical_assignments/gradeshistogram).
+contains the module [Grades Histogram](gradeshistogram).
 
 ### Grades Histogram
 
