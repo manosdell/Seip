@@ -16,7 +16,6 @@ public class MyMathTest {
 
     @Test
     public void testFactorialZeroInput() {
-
         Assert.assertEquals(1, testClass.factorial(0));
     }
 
@@ -33,6 +32,11 @@ public class MyMathTest {
     @Test
     public void testIsPrimeTrue() {
         Assert.assertEquals(true, testClass.isPrime(2));
+    }
+
+    @Test
+    public void testIsPrimeTrueBiggerNumber() {
+        Assert.assertEquals(true, testClass.isPrime(11));
     }
 
     @Test
