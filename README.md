@@ -1,12 +1,22 @@
 # SEIP Lab Assignments
 
+![Build Status](https://github.com/manosdell/Seip/actions/workflows/maven.yml/badge.svg)
+
 This repository contains all the practical assignments of the Software
 Engineering in Practice (SEiP) course's lab.
+
+## Prerequisites
+
+In order to build and execute the projects you need to have installed:
+* Java 8
+* Maven
 
 ## Project Structure
 
 This repository contains a Maven parent project, which in turn
-contains the module [Grades Histogram](gradeshistogram).
+contains the modules:
+1. [Grades Histogram](gradeshistogram) - Creates a histogram from a given .txt file containing grades
+2. [Unit Testing](unittesting/README.md) - Contains classes and methods with math operations and their respective tests
 
 ### Grades Histogram
 
