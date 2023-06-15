@@ -8,7 +8,7 @@
 
   jobs:
     build:
-      runs-on: windows-latest
+      runs-on: ubuntu-latest
 
       steps:
       - uses: actions/checkout@v3
@@ -18,5 +18,34 @@
           java-version: '11'
           distribution: 'temurin'
           cache: 'maven'
+
       - name: Build with Maven
         run: mvn -B package jacoco:report --file pom.xml
+
+      - name: Analyze with JAR
+        run: tail -1 `java -jar sourcecodeanalyzer/target/sourcecodeanalyzer-0.0.1-SNAPSHOT-jar-with-dependencies.jar sourcecodeanalyzer/src/test/resources/TestClass.java regex local sourcecodeanalyzer/target/metrics_results csv | cut -d " " -f 4` > output.txt
+
+      - name: Publish output.txt artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: output
+          path: output.txt
+
+    analyze:
+      needs: build
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v3
+
+        - name: Download output.txt artifact
+          uses: actions/download-artifact@v3
+          with:
+            name: output
+
+        - name: Echo expected output
+          run: echo '21,3,3,' > expected_output.txt
+
+        - name: Compare outputs
+          run: diff -q expected_output.txt output.txt
