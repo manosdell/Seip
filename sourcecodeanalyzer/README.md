@@ -17,13 +17,13 @@ The package structure of the module is the following:
 
 2. Run the executable by executing
 	java –jar “jar-with-dependencies” arg0 arg1 arg2 arg3 arg4
-were args translate to: 	
+were args translate to:
 	arg0 = “JavaSourceCodeInputFile” (e.g., src/test/resources/TestClass.java)
 	arg1 = “sourceCodeAnalyzerType” [regex|strcomp]
 	arg2 = “SourceCodeLocationType” [local|web]
 	arg3 = “OutputFilePath” (e.g., ../output_metrics_file)
 	arg4 = “OutputFileType” [csv|json]
-example: 
+example:
 	java –jar ./target/sourcecodeanalyzer-0.0.1-SNAPSHOT-jar-with-dependencies.jar ./src/test/resources/TestClass.java regex local metrics_results csv
 
 ## Solution Overview
@@ -89,7 +89,9 @@ classes are used to implement the different types of source code analyzers (rege
 different implementations of `calculateLOC`, `calculateNOM` and `calculateNOC` methods. The `NullAnalyzer` class
 is used when the user does not provide a valid input for the source code analyzer type (**Null object** pattern).
 The `SourceCodeAnalyzerFactory` class implements the **Factory** pattern. The factory pattern is used
-to create the correct instance of the `SourceCodeAnalyzer` class based on the user's input.
+to create the correct instance of the `SourceCodeAnalyzer` class based on the user's input. The **Bridge** pattern
+is used to separate the `SourceCodeAnalyzer` class from the `SourceFileReader` class. The `SourceCodeAnalyzer`
+class contains a `SourceFileReader` object which is used to read the source code file.
 
 **Benefits of this approach:**
 * It is easy to add a new type of source code analyzer. We can just create a new class that extends the
@@ -116,3 +118,4 @@ one by one from the client.
 
 ![UML Diagram](class_diagram.png)
 
+You can also find the diagram in .svg format [here](class_diagram.svg).
