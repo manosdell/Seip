@@ -17,6 +17,8 @@ This repository contains a Maven parent project, which in turn
 contains the modules:
 1. [Grades Histogram](gradeshistogram) - Creates a histogram from a given .txt file containing grades
 2. [Unit Testing](unittesting/README.md) - Contains classes and methods with math operations and their respective tests
+3. [Source Code Analyzer](sourcecodeanalyzer/README.md) - Analyzes the source code of a file and calculates the following
+metrics: LOC (lines of code), NOM (number of methods), and NOC (number of classes)
 
 ### Grades Histogram
 
